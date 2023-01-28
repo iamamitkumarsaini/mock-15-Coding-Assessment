@@ -2,7 +2,7 @@ const express = require("express");
 require("dotenv").config()
 
 const { connection } = require("./config/db");
-const { auth } = require("./middlewares/auth.middleware");
+const { auth } = require("./Middlewares/auth.middleware");
 const { userRoutes } = require("./Routes/User.routes");
 const { userBMIRoutes } = require("./Routes/UserBMI.routes");
 
