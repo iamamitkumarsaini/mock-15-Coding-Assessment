@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken")
 
 const userRoutes = express.Router()
 
-userRoutes.post("/signup", async(req,res) => {
+userRoutes.post("/register", async(req,res) => {
     const {name, email, password} = req.body;
     
     const userPresent = await UserModel.findOne({email})
