@@ -20,35 +20,54 @@ userBMIRoutes.post("/calculateBMI", async(req,res) => {
         // console.log(user)
 
         if(user){
-
-            const history = new BMIHistoryModel({userID,name, email, height, weight, BMI})
-            await history.save();
-
-            const data = await BMIHistoryModel.find({userID});
             // console.log(data,"data")
 
 
             if(BMI<18.5){
-                res.send({"msg":"Under Weight",data})
+                const history = new BMIHistoryModel({userID,name, email, height, weight, BMI,result:"Under Weight"})
+                await history.save();
+    
+                const data = await BMIHistoryModel.find({userID});
+                res.send({data})
             }
         
             else if(BMI>=18.5 && BMI<=24.9){
-                res.send({"msg":"Normal Weight",data})
+                const history = new BMIHistoryModel({userID,name, email, height, weight, BMI,result:"Normal Weight"})
+                await history.save();
+    
+                const data = await BMIHistoryModel.find({userID});
+                res.send({data})
             }
         
             else if(BMI>=25 && BMI<=29.9){
-                res.send({"msg":"Over Weight",data})
+                const history = new BMIHistoryModel({userID,name, email, height, weight, BMI,result:"Over Weight"})
+                await history.save();
+    
+                const data = await BMIHistoryModel.find({userID});
+                res.send({data})
             }
         
             else if(BMI>=30 && BMI<=34.9){
-                res.send({"msg":"Obesity",data})
+                const history = new BMIHistoryModel({userID,name, email, height, weight, BMI,result:"Obesity"})
+                await history.save();
+    
+                const data = await BMIHistoryModel.find({userID});
+                res.send({data})
             }
         
             else if(BMI>=35){
-                res.send({"msg":"Extreme Obesity",data})
+                const history = new BMIHistoryModel({userID,name, email, height, weight, BMI,result:"Extreme Obesity"})
+                await history.save();
+    
+                const data = await BMIHistoryModel.find({userID});
+                res.send({data})
             }
         
             else {
+                const history = new BMIHistoryModel({userID,name, email, height, weight, BMI,result:"Extreme Obesity"})
+                await history.save();
+    
+                const data = await BMIHistoryModel.find({userID});
                 res.send({data})
             }
         }
