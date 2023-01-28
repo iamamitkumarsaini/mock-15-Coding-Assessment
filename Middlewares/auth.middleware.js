@@ -9,7 +9,13 @@ const auth = (req,res,next) => {
             if(decoded){
                 // console.log("Decoded",decoded)
                 const userID = decoded.userID;
+                const username = decoded.name;
+                const useremail = decoded.email;
+
                 req.body.userID = userID
+                req.body.name = username;
+                req.body.email = useremail
+
                 next()
             }
             else{

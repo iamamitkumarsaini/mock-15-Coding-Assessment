@@ -46,7 +46,7 @@ userRoutes.post("/login", async(req,res) => {
             // console.log(myPassword)
             bcrypt.compare(password,myPassword, function (err,result) {
                 if(result){
-            const token = jwt.sign({userID:user[0]._id}, process.env.secret_key,{expiresIn: '1d'})
+            const token = jwt.sign({"userID":user[0]._id,"name":user[0].name,"email":user[0].email}, process.env.secret_key,{expiresIn: '1d'})
             res.send({"message":"Logged-in Successfully",user,token});
                 }
                 else{
